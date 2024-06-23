@@ -1,0 +1,11 @@
+
+@if(isLoginScreen()){
+  <router-outlet></router-outlet>
+}
+@if(!isLoginScreen()){
+  <app-sidenav>
+    <router-outlet></router-outlet>
+  </app-sidenav>
+}
+
+

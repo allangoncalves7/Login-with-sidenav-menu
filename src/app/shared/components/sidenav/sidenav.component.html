@@ -1,0 +1,121 @@
+<mat-toolbar>
+  <button mat-icon-button aria-label="Menu icon" (click)="sidenav.toggle()">
+    <mat-icon>menu</mat-icon>
+  </button>
+  <h1>App Sidenav</h1>
+  <span class="spacer"></span>
+  <div>
+    <button
+      mat-icon-button
+      matTooltip="My Account"
+      [matMenuTriggerFor]="accountMenu"
+    >
+      <mat-icon>account_circle</mat-icon>
+    </button>
+
+    <mat-menu #accountMenu [overlapTrigger]="false" yPosition="below">
+      <button mat-menu-item routerLink="#">
+        <mat-icon>person</mat-icon><span>My Account</span>
+      </button>
+      <button mat-menu-item><mat-icon>help</mat-icon><span>Help</span></button>
+      <mat-divider></mat-divider>
+      <button mat-menu-item (click)="logout()">
+        <mat-icon>exit_to_app</mat-icon>Logout
+      </button>
+    </mat-menu>
+  </div>
+</mat-toolbar>
+
+<mat-sidenav-container autosize>
+  <mat-sidenav
+    [mode]="isMobile ? 'over' : 'side'"
+    [opened]="'true'"
+    [autoFocus]="false"
+  >
+    <mat-nav-list>
+      <mat-list-item routerLink="/home" matTooltip="Home">
+        <span class="entry">
+          <mat-icon>house</mat-icon>
+          <span>Home</span>
+        </span>
+      </mat-list-item>
+
+      <mat-expansion-panel [class.mat-elevation-z0]="true">
+        <mat-expansion-panel-header>
+          <span class="entry">
+            <mat-icon>add_circle</mat-icon>
+            <span>Registers</span>
+          </span>
+        </mat-expansion-panel-header>
+        <mat-nav-list>
+          <a mat-list-item routerLink="#" matTooltip="Users">
+            <span class="menu-item">Users</span>
+          </a>
+
+          <a mat-list-item routerLink="#" matTooltip="Clients">
+            <span class="menu-item">Clients</span>
+          </a>
+        </mat-nav-list>
+      </mat-expansion-panel>
+
+      <mat-expansion-panel [class.mat-elevation-z0]="true">
+        <mat-expansion-panel-header>
+          <span class="entry">
+            <mat-icon>search</mat-icon>
+            <span>Search</span>
+          </span>
+        </mat-expansion-panel-header>
+        <mat-nav-list>
+          <a mat-list-item routerLink="#" matTooltip="Search">
+            <span class="menu-item">Search</span>
+          </a>
+
+          <a mat-list-item routerLink="#" matTooltip="Advanced Search">
+            <span class="menu-item">Advanced Search</span>
+          </a>
+        </mat-nav-list>
+      </mat-expansion-panel>
+
+      <mat-expansion-panel [class.mat-elevation-z0]="true">
+        <mat-expansion-panel-header>
+          <span class="entry">
+            <mat-icon>markunread</mat-icon>
+            <span>Inbox</span>
+          </span>
+        </mat-expansion-panel-header>
+        <mat-nav-list>
+          <a mat-list-item routerLink="#" matTooltip="E-mails">
+            <span class="entry">
+              <span
+                class="menu-item"
+                matBadgeSize="small"
+                matBadge="7"
+                matBadgeColor="warn"
+                matBadgeOverlap="false"
+                >E-mails</span
+              >
+            </span>
+          </a>
+
+          <a mat-list-item routerLink="#" matTooltip="Notifications">
+            <span class="entry">
+              <span
+                class="menu-item"
+                matBadgeSize="small"
+                matBadge="15"
+                matBadgeColor="warn"
+                matBadgeOverlap="false"
+                >Notifications</span
+              >
+            </span>
+          </a>
+
+        </mat-nav-list>
+      </mat-expansion-panel>
+
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>

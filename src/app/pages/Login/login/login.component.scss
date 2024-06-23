@@ -1,0 +1,41 @@
+@import 'variables';
+
+:host {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  min-width: 300px;
+
+  mat-card {
+    min-width: 40%;
+    margin: 2em auto;
+    text-align: center;
+    box-shadow:  0px 8px 12px 0px rgba(0,0,0,0.5);
+  }
+
+  .btn-login {
+    background-color: $cor-primaria;
+    color: white;
+    width: 20%;
+  }
+
+  img {
+    width: 180px;
+    height: 100px;;
+  }
+
+  .full-width{
+    width: 100%;
+  }
+
+  .min-width {
+    width: 100%;
+    min-width: 150px;
+  }
+
+  .actions-center {
+    justify-content: center;
+  }
+
+}

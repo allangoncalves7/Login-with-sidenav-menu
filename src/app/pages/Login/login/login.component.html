@@ -1,0 +1,38 @@
+
+<mat-card>
+  <div class=" flex flex-center">
+    <img src="assets/images/angularLogo.png" alt="">
+  </div>
+  <mat-card-content>
+    <form [formGroup]="formLogin" class="min-width">
+
+      <p>
+        <mat-form-field class="full-width" appearance="outline">
+          <mat-label>Username</mat-label>
+          <input type="text" matInput formControlName="username" required>
+          @if (formLogin.get('username')?.hasError('required')) {
+            <mat-error>Username is required!</mat-error>
+            }
+
+        </mat-form-field>
+      </p>
+
+      <p>
+        <mat-form-field class="full-width" appearance="outline">
+          <mat-label>Password</mat-label>
+          <input type="password" matInput formControlName="password" required>
+          @if (formLogin.get('password')?.hasError('required')) {
+            <mat-error>Password is required!</mat-error>
+            }
+        </mat-form-field>
+      </p>
+
+      <mat-card-actions class="actions-center">
+        <button mat-raised-button class="btn-login" (click)="login()">Login</button>
+      </mat-card-actions>
+
+    </form>
+  </mat-card-content>
+</mat-card>
+
+
